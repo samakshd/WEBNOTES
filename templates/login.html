@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>LOGIN</title>
+{% endblock %}
+
+{% block body %}
+<style>
+	body {
+		background-image: linear-gradient(to right, #434343, #000000);
+	}
+
+	h1 {
+		color: white;
+	}
+
+	p {
+		color: tomato;
+	}
+	.error{
+		color: brown;
+	}
+</style>
+
+<div class="container">
+	<div class="d-flex justify-content-center align-items-center login-container">
+		<form class="login-form text-center" action="/login" method="post">
+			<br><br>
+			<h1 class="mb-5 font-weight-light text-uppercase"><b><b>WELCOME TO WEBNOTES</b></b></h1>
+			<hr>
+			<h1>Login To Your Account</h1><br>
+			<div class="form-group">
+				<input type="text" name="username" class="form-control rounded-pill form-control-lg"
+					placeholder="Username">
+			</div>
+			<div class="form-group">
+				<input type="password" name="password" class="form-control rounded-pill form-control-lg"
+					placeholder="Password">
+			</div>
+			<button type="submit" class="btn btn-lg btn-primary border border-dark">Log in</button><br><br>
+			<p><b>Dont have an Account?</b><br><a class="btn btn-success" href="/signup" role="button">Sign Up &raquo;</a></p>
+			{% if error != None %}
+				<p class="error">{{ error }}</p>
+			{% endif %}
+		</form>
+	</div>
+</div>
+
+{% endblock %}

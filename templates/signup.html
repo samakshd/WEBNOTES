@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>SIGNUP FOR FREE</title>
+{% endblock %}
+
+{% block body %}
+<!-- <br><br><h1>WELCOME TO WEBNOTES</h1><hr>
+	<h2>SIGNUP FOR FREE</h2><hr>
+	<form action="/signup" method="post">
+		<label>Username</label><br>
+		<input type="text" name="new_username" placeholder="Enter A New Username"><br/><br/>
+		<label>Email Address</label><br/>
+		<input type="email" name="email" placeholder="Enter your Email Address"><br/><br/>
+		<label>New Password</label><br/>
+		<input type="password" name="new_password" placeholder="Choose A New Password"><br/><br/>
+		<input type="submit" value="Sign Up"><br/>
+
+		{% if error != None %}
+			{{ error }}
+		{% endif %}
+
+	</form> -->
+	<style>
+		body{
+			background-image: linear-gradient(to right, #434343, #000000);
+		}
+		h1{
+			color: white;
+		}
+		label{
+			color: seagreen;
+		}
+		.error{
+			color: red;
+		}
+	</style>
+
+	<div class="container">
+		<div class="d-flex justify-content-center align-items-center login-container">
+			<form class="text-center" action="/signup" method="post">
+				<br><br>
+				<h1><b><b><i>Signup For Free</i></b></b></h1><br><hr>
+				<label><b>Username</b></label><br>
+				<input type="text" name="new_username" placeholder="Enter A New Username"><br><br>
+				<label><b>Email Address</b></label><br />
+				<input type="email" name="email" placeholder="Enter your Email Address"><br><br>
+				<label><b>New Password</b></label><br />
+				<input type="password" name="new_password" placeholder="Choose A New Password"><br><br>
+				<button class="btn btn-primary" type="submit" value="Sign Up">Sign Up</button><br><br>
+
+				{% if error != None %}
+					<p class="error"><b>{{ error }}</b></p>
+				{% endif %}
+
+			</form>
+		</div>
+	</div>
+{% endblock %}

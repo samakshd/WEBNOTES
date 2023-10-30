@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head %}
+	<title>NOTEPAD</title>
+{% endblock %}
+
+{% block body %}
+<style>
+	body{
+		background-image: linear-gradient(to right, #434343, #000000);
+	}
+	.error{
+		color: red;
+	}
+</style>
+	<form method="post">
+		{% if id == "0" %}
+		<a href="/<user>/dashboard">BACK TO DASHBOARD</a><br>
+		<a href="{{ url_for('notepad',user=user, id=0) }}" target="_blank">NEW NOTE</a><br>
+		<a href="/home" >LOGOUT</a>
+		<br><br>
+		<input type="TEXT" name='subject' placeholder="Enter the Subject Here" size="100">
+		<br><br>
+		<textarea name="content" rows="20" cols="100" style="resize:none"
+			placeholder="ENTER YOUR TEXT HERE"></textarea><br/>
+		{% else %}
+		<a href="/<user>/dashboard">BACK TO DASHBOARD</a><br>
+		<a href="{{ url_for('notepad',user=user, id=0) }}" target="_blank">NEW NOTE</a><br>
+		<a href="/home" >LOGOUT</a><br><br>
+		<input type="TEXT" name='subject' value="{{ update.subject }}" size="100">
+		<br /><br />
+		<textarea name="content" rows="20" cols="100" style="resize:none">{{ update.content }}</textarea><br/>
+		{% endif %}
+
+		<button class="btn btn-success" type="submit" name="save" value="SAVE">SAVE</button>
+		<button class="btn btn-danger" type="reset" name="reset">RESET</button><br /><br />
+	</form>
+{% if error != None %}
+				<p class="error"><b>{{ error }}</b></p>
+{% endif %}
+
+{% endblock %}

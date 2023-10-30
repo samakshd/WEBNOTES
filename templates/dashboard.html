@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>DASHBOARD</title>
+{% endblock %}
+
+{% block body %}
+
+	
+			<a href="{{ url_for('notepad',user=user, id=0) }}">ADD NOTES</a><br/>
+			<a href="/home">LOGOUT</a>
+			
+			<br><br>
+
+			
+			<table>
+			{% for post in posts %}
+			
+				<tr>
+					<td>{{ loop.index }}.</td> 
+					<td>{{ post.subject }}</td>
+				
+					<form class="text-center" method="get" action="{{ url_for('notepad', user=user, id=post.Sno) }}">
+					<td>
+						<button class="btn btn-primary" type="submit">Edit</button></form>
+					</td>
+
+
+					<td>
+					<form class="text-center" method="post" action="{{ url_for('delete' , user=user, id=post.Sno) }}">
+						<button class="btn btn-danger" type="submit">Delete</button></form>
+					</td>
+
+					<td>
+					<form class="text-center" method="post" action="{{ url_for('downloader',id=post.Sno) }}">
+						<button class="btn btn-success" type="submit">Download</button></form>
+					</td>
+				</tr>
+			{% endfor %}
+			</table>	
+				
+
+{% endblock %}

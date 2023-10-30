@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>NOTEPAD</title>
+{% endblock %}
+
+{% block body %}
+
+<style>
+	body{
+		background-image: linear-gradient(to right, #434343, #000000);
+	}
+	.error{
+		color: red;
+	}
+</style>
+
+<div class="container">
+	<div class="d-flex justify-content-center align-items-center login-container">
+		<form class="login-form text-center" method="post">
+			<a href="/guest/notepad" target="_blank"><b>NEW NOTE</b></a><br>
+			<a href="/home"><b>BACK TO HOME</b></a><br>
+			
+			<br><input type="TEXT" name='subject' placeholder="Enter the Subject Here" size="100"><br><br>
+			<textarea name="content" rows="18" cols="100" style="resize:none"
+				placeholder="ENTER YOUR TEXT HERE"></textarea><br>
+			<button type="submit" name="save" value="DOWNLOAD" class="btn btn-lg btn-success border border-dark">DOWNLOAD</button>
+			<button type="reset" name="reset" class="btn btn-lg btn-danger border border-dark">RESET</button><br><br>
+			{% if error != None %}
+				<p class="error"><b>{{ error }}</b></p>
+			{% endif %}
+		</form>
+	</div>
+</div>
+{% endblock %}

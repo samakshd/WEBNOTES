@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %}
+	<title>HOME</title>
+{% endblock %}
+
+{% block body %}
+<style>
+body {
+	background-image: linear-gradient(to right, #c79081, #dfa579);
+}
+</style>
+
+<br><h1><b>Home Page</b></h1><br>
+<main role="main">
+	<div class="jumbotron">
+		<div class="col-sm-8 mx-auto">
+			<h1>Welcome</h1><hr>
+			<p><i>Welcome to WebNotes, this is a web based notepad where you can write, save or download your notes.</i></p>
+			<p><i>In A Hurry ?? You can try our notepad as a <a href="/guest/notepad">GUEST USER</a></i></p>
+			<p><i>If you want a personalized experience, please click on <a href="/login">LOG IN</a></i></p>
+		</div>
+	</div>
+</main>
+{% endblock %}
